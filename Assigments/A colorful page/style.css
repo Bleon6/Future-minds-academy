@@ -1,0 +1,23 @@
+body {
+    background-image:  url(images/Wallpaper.jpg);
+    
+}
+
+h1 {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(63, 9, 121, 1) 23%, rgba(0, 212, 255, 1) 100%);
+    color: #ede4e4;
+}
+
+article {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(63, 9, 121, 1) 23%, rgba(0, 212, 255, 1) 100%);
+    color: #ede4e4;
+    font-size: 20px;
+    margin-bottom: 100px; 
+    }
+
+nav {
+    background-color: rgba(0, 255, 60, 0.459);
+}
+
