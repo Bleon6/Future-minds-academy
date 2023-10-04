@@ -1,0 +1,15 @@
+p:hover {
+    background-color: #000000;
+    color: yellowgreen;
+    font-size: 40px;
+}
+
+p {
+    font-size: 40px;
+}
+
+p:hover:first-letter {
+    font-size: 70px;
+    font-weight: bold;
+}
+
