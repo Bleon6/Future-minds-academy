@@ -1,0 +1,15 @@
+p {
+    font-size: 2em;
+    text-align: justify;
+    display: inline;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 0;
+    display: inline-block;
+}
+
+article {
+    width: 60%;
+}
