@@ -1,0 +1,186 @@
+body {
+    background-image: url(Images/background.jfif);
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0 10%;
+    cursor: url("Images/rocket.png"),auto;
+}
+
+header {
+    text-align: center;
+    border-top: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding:  1em;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+h1 {
+    color: #f0ffff;
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 2em;
+    text-align: center;
+}
+
+main {
+    text-align: center;
+}
+
+.container1 {
+    background-color: #00ffff;
+    border-radius: 2em;
+    padding: 10px;
+    margin: 20px 0 20px 0;
+}
+
+.profile {
+    border: solid black;
+}
+
+.container1:hover {
+    border: solid black;
+    background-color: #00c5c5;
+}
+
+span {
+    text-decoration: underline;
+}
+
+.nav{
+    box-sizing: border-box;
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.5em;
+    margin: 10px;
+}
+
+.nav-list {
+    padding-left: 0;
+}
+
+
+.container2 {
+    background-color: #ff3434;
+    border-radius: 2em;
+    padding: 10px;
+    margin: 20px 0 20px 0;
+   
+}
+
+.container2:hover {
+    border: solid black;
+    background-color: #fd1b1b;
+}
+
+.study {
+    background-color: #f0ffff;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: left;
+}
+
+
+.containers {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.names {
+    font-size: 1.5em;
+    text-decoration: none;
+    color: #8b8b8b;
+}
+
+.container3 {
+    background-color: #34ff59;
+    border-radius: 2em;
+    padding: 20px;
+    margin: 20px 0 20px 0;
+}
+
+table {
+    width: 70%;
+    border-style: solid;
+    border-collapse: collapse;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+table, td, th {
+    border: 1px solid;
+}
+
+th {
+   background-color: #00c925;
+   padding: 0px 10px 0px 10px;
+}
+
+td {
+    padding: 10px;
+    text-decoration: underline;
+}
+
+
+
+.container3:hover {
+    background-color: #00ff2f;
+    border: solid black;
+}
+
+.container4 {
+    background-color: #ff5757;
+    border-radius: 2em;
+    padding: 10px;
+    margin: 20px 0 20px 0;
+    text-align: left;
+}
+
+.container4:hover {
+    border: solid black;
+    background-color: #ff3939;
+    text-align: left;
+}
+
+.more {
+    background-color: #ff4500;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer {
+    background-color: black;
+    color: #ffffff;
+    text-align: center;
+    padding: 1%;
+    font-size: 1.4em;
+}
+
+ol,
+ul {
+    margin-top: 10px;
+}
+
+li {
+    margin-top: 5px;
+    display: inline;
+} 
+
+
+
+
+
+
+
+
