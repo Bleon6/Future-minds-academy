@@ -1,0 +1,24 @@
+section {
+    background-color: #ffe4c4;
+    border: solid #000000;
+    padding: 10px;
+}
+
+a img {
+  border:solid #000000;
+  float: left; 
+  margin: 10px;
+  width: 300px;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+img:hover {
+    width: 310px;
+    cursor: pointer;
+    border-style: dashed;
+    border-color: #ff0000;
+padding: 10px;
+}

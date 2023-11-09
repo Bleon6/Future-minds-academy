@@ -1,0 +1,68 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.cards {
+    width: auto;
+    border: 5px solid black;
+    width: 20%;
+    height: 66%;
+    box-shadow: 0 7px 7px 7px rgb(194, 194, 194);
+}
+
+.top {
+    border-bottom: 5px solid black;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.card-price {
+    border-right: 5px solid black;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    font-size: 3em;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+
+span {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+
+.card-date {
+    width: 50%;
+    text-align: center;
+}
+
+.card-copyright {
+    height: 515px;
+    display: flex;
+    flex-direction: row;
+    background-size: contain;
+}
+
+img {
+    width: 20%;
+    height: 50%;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+}
+
+
+p {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    padding: 10px;
+    z-index: 1;
+}
