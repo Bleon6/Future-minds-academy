@@ -12,13 +12,15 @@ body {
 }
 
 .container {
-    
+    height: 100vh;
     display: grid;
     grid-template-columns: auto 1fr;
-    
+    grid-template-rows: 1fr;
 }
 
 .left-side {
+    overflow-y: auto;
+    overflow-x: hidden;
     width: 300px;
     height: 100vh;
     top: 0;
@@ -128,7 +130,7 @@ li {
 
 .right-side {
     align-self: start;
-    padding: 0;
+    padding: 1rem;
 }
 
 .right-side header {
@@ -249,6 +251,7 @@ li {
 }
 
 .sales-container {
+    position: relative;
     background-color: white;
     margin: 1rem;
     height: 27rem;
@@ -256,11 +259,17 @@ li {
     margin-top: 3rem;
 }
 
+.title {
+    margin:25px 0px 0px 120px;
+}
+
 .sales-statistics {
     display: flex;
-    justify-content: start;
-    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding: 20px;
     padding: 0.5rem 0.8rem;
+    background-color: white;
 } 
 
 .sales-contats-iframe {
@@ -275,19 +284,23 @@ iframe {
     padding-left: 1rem;
 }
 
-td {
-    padding: 1rem;
+tr {
     border-bottom: 0.1rem solid gray;
-}
-
-td tr {
-    display: flex;
-    justify-content: space-around;
 }
 
 table {
     width: 100%;
-    border: collapse;
+    height: auto;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 1.1rem;
+    text-align: start;
+}
+
+ tr:last-child {
+    border-bottom: none;
 }
 
 table img {
@@ -296,13 +309,17 @@ table img {
 }
 
 main{
-    display: -ms-grid;
     display: grid;
-    -ms-grid-columns: auto;
     grid-template-columns: auto;
-    -ms-grid-rows: auto 50px auto 50px auto;
     grid-template-rows: auto auto auto;
     gap:50px;
+}
+
+.sales-container span {
+    background-color: green;
+    color: white;
+    font-size: 1.5rem ;
+    padding: 2rem;
 }
 
 
