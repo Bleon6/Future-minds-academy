@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Js Challenges</title>
+</head>
+
+<body>
+
+    <script>
+
+        function calculateMiles(kilometers) {
+            return kilometers * 0.621371;
+        }
+
+        let kilometers = parseFloat(prompt("Please enter the number of kilometers: "));
+        let miles = calculateMiles(kilometers);
+        let result = `${kilometers} kilometers is equal to ${miles} miles.`;
+
+        console.log(result); 2
+
+        function calculateArea(radius) {
+            return Math.PI * Math.pow(radius, 2);
+        }
+
+        let radius = parseFloat(prompt("Please enter the radius of the circle: "));
+        let area = calculateArea(radius);
+
+        let areOfCircle = `${radius} radious of the circle is equal to  ${area} area of the circle.`;
+
+        console.log(areOfCircle);
+
+        function convertEuroToDollar(euro) {
+            const exchangeRate = 1.10;
+            return euro * exchangeRate;
+        }
+
+        let euro = parseFloat(prompt("Please enter the amount in Euros: "));
+        let dollar = convertEuroToDollar(euro);
+
+        let conversion = `${euro} Euro is equal to ${dollar} Dollar.`
+
+        console.log(conversion);
+
+    </script>
+
+</body>
+
+</html>
