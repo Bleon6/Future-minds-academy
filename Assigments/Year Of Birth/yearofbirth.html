@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Year Of Birth</title>
+</head>
+
+<body>
+
+    <script>
+        function calculateYearOfBirth(age) {
+            let currentYear = new Date().getFullYear();
+            return currentYear - age;
+        }
+
+        let age = prompt("Please enter your age: ");
+        let yearOfBirth = calculateYearOfBirth(age);
+
+        let outputSentence = `You are ${age} years old so you were probably born in the year ${yearOfBirth}. `;
+
+        console.log(outputSentence);
+    </script>
+</body>
+
+</html>
