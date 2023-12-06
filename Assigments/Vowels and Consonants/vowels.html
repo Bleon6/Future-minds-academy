@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowels and consonants</title>
+</head>
+<body>
+    <script>
+        document.addEventListener('keypress', (e)=>{
+            let letter = e.key;
+            let vowels = 'aeiouy';
+
+            letter = letter.toLowerCase();
+
+            if(letter.length !==1){
+                console.log('Please write only one letter!');
+            }
+            else{
+                if(vowels.includes(letter)){
+                    console.log('The letter you typed is a vowel!');
+                }
+                else{
+                    console.log('The letter you typed is NOT a vowel!');
+                }
+            }
+        })
+    </script>
+</body>
+</html>
