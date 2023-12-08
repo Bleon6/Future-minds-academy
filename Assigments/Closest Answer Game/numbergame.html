@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>body {
+        margin: 0;
+        padding: 0;
+        background-color: rgb(192, 192, 193);
+        font-family: monospace;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+        
+        .game-contaier {
+        padding: 20px;
+        background-color: black;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        }
+        
+        .game-data {
+        padding: 20px;
+        font-size: 2rem;
+        }
+        
+        .player-container {
+        display: flex;
+        font-size: 1.5rem;
+        }
+        
+        .playerOne {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 50px;
+        background-color: red;
+        }
+        
+        .playerTwo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 50px;
+        background-color: red;
+        }</style>
+    
+    <title>Game of Chances</title>
+</head>
+<body>
+    <div class="game-contaier">
+        <span class="game-data">The correct answer is <span id="answer"></span></span>
+        <div class="player-container">
+            <div class="playerOne" id="playerOne">
+                <span>Player One</span>
+                <span id="playerOneAnswer">6</span>
+            </div>
+            <div class="playerTwo" id="playerTwo">
+                <span>Player Two</span>
+                <span id="playerTwoAnswer">19</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let answer = Math.floor(Math.random() * 20) + 1;
+        let playerOne = parseInt(prompt('Player One choose a number between 1-20'));
+        let playerTwo = parseInt(prompt('Player Two choose a number between 1-20'));
+    
+        if(isNaN(playerOne) || isNaN(playerTwo)){
+            throw new Error('Please write only numbers!');
+        }
+        else if((playerOne < 0 || playerOne > 20) || (playerTwo < 0 || playerTwo > 20)){
+            throw new  Error('Only select numbers between 0-20');
+        }
+
+        let playerOneDistance = Math.abs(answer - playerOne);
+        let playerTwoDistance = Math.abs(answer - playerTwo);
+
+        let playerOneBackground = document.getElementById('playerOne');
+        let playerTwoBackground = document.getElementById('playerTwo');
+
+        if(playerOneDistance == playerTwoDistance){
+            playerOneBackground.style.backgroundColor = 'orange';
+            playerTwoBackground.style.backgroundColor = 'orange';
+        }
+        else if(playerOneDistance < playerTwoDistance){
+            playerOneBackground.style.backgroundColor = 'green';
+        }
+        else{
+            playerTwoBackground.style.backgroundColor = 'green';
+        }
+
+        document.getElementById("answer").innerHTML = answer;
+        document.getElementById("playerOneAnswer").innerHTML = playerOne;
+        document.getElementById("playerTwoAnswer").innerHTML = playerTwo;
+        
+
+    </script>
+</body>
+</html>
