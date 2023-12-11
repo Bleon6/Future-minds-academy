@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numbers from 1 to 100</title>
+</head>
+
+<body>
+    <script>
+        let userInput = parseInt(prompt('Write a number from 1 to 100'));
+        let timesPrinted = 1;
+        let seperator = '';
+        let result = '';
+
+        if (isNaN(userInput)) {
+            throw new Error('Input must be a number');
+        }
+
+        while (timesPrinted <= userInput) {
+            if (timesPrinted > 100 || timesPrinted < 0) {
+                throw new Error('Input must be between 1 and 100');
+            }
+            result += seperator + timesPrinted;
+            seperator = ',';
+            timesPrinted++;
+        }
+
+        console.log(`${result}.`);
+    </script>
+</body>
+
+</html>
