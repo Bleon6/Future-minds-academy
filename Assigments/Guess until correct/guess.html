@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess until correct</title>
+</head>
+
+<body>
+    <script>
+        const random = Math.floor(Math.random() * 6) + 1;
+        let userInput;
+        let counter = 0;
+
+        do {
+            userInput = parseInt(prompt('Guess a number'));
+            counter++;
+        }
+        while (random != userInput)
+
+        let plural = 'tries';
+
+        if (counter == 1) {
+            plural = 'try';
+        }
+
+        alert(`Coungratulations, you guessed it ${counter} ${plural}`);
+    </script>
+</body>
+
+</html>
