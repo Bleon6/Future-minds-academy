@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maximum of 3 tries</title>
+</head>
+
+<body>
+    <script>
+        let passwordAttempts = 0;
+        let correctPassword = '12341234';
+
+        do {
+            let password = prompt(`Enter your password: You have  ${3 - passwordAttempts} tries left`);
+            passwordAttempts++;
+
+            if (password === correctPassword) {
+                alert('Welcome!');
+                break;
+            }
+
+            if (passwordAttempts === 3) {
+                alert('Sorry, you can\'t try anymore.');
+            }
+
+        }
+         while (passwordAttempts < 3);
+    </script>
+</body>
+
+</html>
