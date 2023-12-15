@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hailstone Numbers</title>
+</head>
+<body>
+    <script>
+        let currentNumber = parseInt(prompt('Write a string number'))
+        let counter = 0;
+
+        while(currentNumber !== 1){
+            console.log(currentNumber);
+
+            if(currentNumber % 2 == 0){
+                currentNumber /= 2;
+            }
+            else{
+                currentNumber = currentNumber * 3 + 1;
+            }
+            counter++;
+        }
+
+        console.log(currentNumber);
+        console.log(`Your reached the end in ${counter} tries:`)
+    </script>
+</body>
+</html>
