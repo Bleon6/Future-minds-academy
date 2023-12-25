@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Expressions</title>
+</head>
+
+<body>
+    <script>
+
+        let printHelloWorld =() => {
+            for (let i = 0; i < 10; i++) {
+                console.log("Hello World");
+            }
+        }
+
+        let printString = (inputString)=> {
+            console.log(inputString);
+        }
+
+        let convertKilometersToMiles =(kilometers) => console.log(kilometers * 0.621371);
+
+        let generateWelcomeMessage =(name, surname) => console.log(`Welcome, ${name} ${surname}`);
+
+        let isWorkingCitizen =(age) => {
+            return age >= 18 && age < 65;
+        }
+
+        let isEven =(number) => {
+            return number % 2 == 0;
+        }
+
+        //Function Calls
+        printHelloWorld();
+        printString("Bleon Pireva");
+
+        convertKilometersToMiles(200);
+        generateWelcomeMessage("Bleon", "Pireva");
+        
+        console.log(isWorkingCitizen(20));
+        console.log(isEven(15));
+
+    </script>
+</body>
+
+</html>
