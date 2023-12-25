@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function printHelloWorld() {
+            for (let i = 0; i < 10; i++) {
+                console.log("Hello World");
+            }
+        }
+
+        function printString(inputString) {
+            console.log(inputString);
+        }
+
+        function convertKilometersToMiles(kilometers) {
+            const miles = kilometers * 0.621371;
+            return miles;
+        }
+
+        function generateWelcomeMessage(name, surname) {
+            const message = `Welcome, ${name} ${surname}`;
+            return message;
+        }
+
+        function isWorkingCitizen(age) {
+            return age >= 18 && age < 65;
+        }
+
+        function isEven(number) {
+            return number % 2 == 0;
+        }
+
+        printHelloWorld();
+
+        printString("Bleon Pireva");
+
+        const miles = convertKilometersToMiles(100);
+        console.log(`100 kilometers is ${miles} miles.`);
+
+        const welcomeMessage = generateWelcomeMessage("Filan", "Fisteku");
+        console.log(welcomeMessage);
+
+        const age = 25;
+        console.log(`Is the person a working citizen? ${isWorkingCitizen(age)}`);
+
+        const number = 7;
+        console.log(`Is ${number} an even number? It is ${isEven(number)}`);
+    </script>
+</body>
+
+</html>
