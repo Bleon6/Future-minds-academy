@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="progress-bar-container">
+        <span class="indicator">100%</span>
+        <div class="progress-bar-wrapper">
+            <div id="bar" class="progress-bar" title="100%"></div>
+        </div>
+        <span class="indicator">0%</span>
+    </div>
+
+    <script>
+
+        let isValidPrecentage = (percetageNum) => percetageNum >= 0 && percetageNum <= 100;
+
+        function getProgressColor(percentage) {
+            let color;
+
+            if (percentage <= 20) {
+                color = 'red';
+            }
+            else if (percentage <= 50) {
+                color = 'orange';
+            }
+            else if (percentage <= 80) {
+                color = 'rgb(90, 156, 90)';
+            }
+            else {
+                color = 'green';
+            }
+
+            return color;
+        }
+
+        function modifyProgressBar(num, color) {
+            let progressBar = document.getElementById('bar');
+            progressBar.style.backgroundColor = color;
+            progressBar.style.height = num + '%';
+            progressBar.setAttribute('title', num + '%');
+        }
+
+        function setProgress(num) {
+            if(isValidPrecentage(num)){
+                let color = getProgressColor(num);
+
+                modifyProgressBar(num, color);
+            }
+            else{
+                throw new Error("Error: Number Not Found!");
+            }
+        }
+
+        setInterval(()=>{
+            const rndInt = Math.floor(Math.random() * 100) + 1;
+
+            setProgress(rndInt);
+        }, 2000);
+
+    </script>
+</body>
+
+</html>
