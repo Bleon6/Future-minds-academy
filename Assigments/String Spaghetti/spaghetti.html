@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Spaghetti</title>
+</head>
+
+<body>
+    <script>
+        let text = '     hello, dolly! ';
+        console.log(text.trim().toUpperCase().charAt(0,6))
+
+        let time = '05:36 PM';
+        let hour = parseInt(time.substring(0, 2));
+        let min = parseInt(time.substring(3, 5));
+        let meridiem = time.substring(6, 8);
+
+        console.log(hour, min, meridiem);
+
+        let temperature = "New York, 15°C";
+        let city = temperature.substring(0, temperature.indexOf(","));
+        let temp = parseInt(temperature.substring(temperature.indexOf(",") + 2, temperature.length - 2));
+
+        console.log(city, temp);
+    </script>
+</body>
+
+</html>
