@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Dimensions</title>
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div {
+            background-color: rgb(0, 134, 177);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            margin: 100px;
+        }
+
+        h1 {
+            padding: 0;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .widthParagraph {
+            top: -35px;
+        }
+
+        .heightParagraph {
+            left: -30px;
+            rotate: -90deg;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let width = parseFloat(prompt('Type the width of the room!'));
+        let height = parseFloat(prompt('Type the height of the room!'));
+        let glass;
+
+        if (width < height) {
+            glass = width;
+            width = height;
+            height = glass;
+        }
+
+        let room = document.createElement('div');
+        room.style.width = width * 3 + 'vw';
+        room.style.height = height * 3 + 'vw';
+        let area = document.createElement('h1');
+        let perimeter = document.createElement('h1');
+        let widthParagraph = document.createElement('p');
+        let heightParagraph = document.createElement('p');
+
+        heightParagraph.textContent = height + 'm';
+        widthParagraph.textContent = width + 'm';
+        area.textContent = 'Area: ' + (width * height) + 'm⌃2';
+        perimeter.textContent = 'Perimeter: ' + (2 * (width + height)) + 'm';
+
+        widthParagraph.classList.add('widthParagraph');
+        heightParagraph.classList.add('heightParagraph');
+
+        room.appendChild(heightParagraph);
+        room.appendChild(widthParagraph);
+        room.appendChild(area);
+        room.appendChild(perimeter);
+        document.body.appendChild(room);
+    </script>
+</body>
+
+</html>
