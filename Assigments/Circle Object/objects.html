@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Object</title>
+</head>
+<body>
+    <script>
+        let circle ={
+            radius: 20,
+
+            center:{
+                x:10,
+                y:10
+            },
+
+            getRadius: function(){
+                return this.radius;
+            },
+
+            setRadius: function(radius){
+                this.radius = radius;
+            },
+
+            getArea: function(){
+                return 3.14 * (this.radius * this.radius);
+            },
+
+            getPerimeter: function(){
+                return 2 * this.radius * 3.14;
+            },
+
+            getCenter: function(){
+                return this.center;
+            },
+
+            setCenter: function(x, y){
+                this.center.x = x;
+                this.center.y = y;
+            },
+
+            grow:function(radius){
+                this.radius += radius;
+            },
+
+            shrink:function(radius){
+                this.radius -= radius;
+            },
+
+            printDetails:function(){
+                console.log("The radius of the circle is: "+this.radius + ". The center is: X= " + this.center.x + " and Y= "+ this.center.y);
+            },
+
+            equals:function(circle){
+                return this.getRadius() == circle.radius && this.center.x == circle.center.x && this.center.y == circle.center.y; 
+            }
+        }
+
+    </script>
+</body>
+</html>
