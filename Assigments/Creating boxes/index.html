@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating boces</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        div{
+            position: absolute;
+            border: 2px solid black;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener('click', (e)=>{
+
+            let box = document.createElement('div');
+            box.style.left = (e.screenX - 50)+'px';
+            box.style.top = (e.screenY- 140)+'px';
+
+            document.body.appendChild(box);
+
+        })
+    </script>
+</body>
+</html>
