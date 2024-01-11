@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reveal Password</title>
+</head>
+<body>
+    
+    <form>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+    </form>
+
+    <script>
+        let passwordInput = document.getElementById('password');
+
+        passwordInput.addEventListener('mouseenter', () => {
+            passwordInput.type = 'text';
+        });
+
+        passwordInput.addEventListener('mouseleave', () => {
+            passwordInput.type = 'password';
+        });
+    </script>
+</body>
+</html>
