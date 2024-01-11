@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Textbox</title>
+    <style>
+        body{
+            height: 100vh;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+
+        }
+        h1 {
+            width: 70rem;
+            height: 3rem;
+            padding: 0;
+            margin: 0;
+            background-color: black;
+            color: rgb(255, 255, 255);
+            border-radius: 4px;
+            padding: 5px;
+            font-weight: 450;
+        }
+
+        span{
+            font-size: 1.5rem;
+            color: rgba(189, 189, 189, 0.516);
+            padding: 1rem;
+            
+        }
+        
+        
+    </style>
+</head>
+<body>
+    
+    <div>
+        <h1 id="lineByKey" aria-placeholder="start typing"><span id="placeholder">Start typing</span></h1>
+    </div>
+    <script>
+
+        let line = '';
+        let lineByKey= document.getElementById('lineByKey');
+
+        document.addEventListener('keypress', (e)=>{
+            let character = e.key;
+
+            line += character;
+            lineByKey.textContent=line;
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Backspace') {
+                line = lineByKey.textContent.slice(0, -1);
+                lineByKey.textContent=line;
+            }
+        });
+    </script>
+
+</body>
+</html>
