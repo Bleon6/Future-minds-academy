@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highest rated movies</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(11, 14, 44);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .title {
+            padding: 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        .card {
+            width: 300px;
+            padding: 10px;
+            background-color: rgb(46, 137, 255);
+            margin-bottom: 20px;
+            border-radius: 10px;
+            transition: 0.2s ease-in-out;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px 3px rgba(255, 255, 255, 0.889);
+        }
+
+        .highestRated {
+            background-color: rgb(255, 226, 62);
+        }
+
+        img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .card-data {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0px 10px 0px;
+        }
+
+        .card:hover {
+            cursor: pointer;
+            background-color: rgb(0, 211, 211);
+        }
+
+        .highestRated:hover {
+            cursor: pointer;
+            background-color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">Highest rated movies</h1>
+    <div id="container" class="container"></div>
+
+    <script>
+        let movies = [
+            {
+                name: 'The Godfather',
+                releaseYear: 1972,
+                rating: 9.2,
+                mainActors: ['Marlon Brando', 'Al Pacino', 'James Caan']
+            },
+            {
+                name: 'The Shawshank Redemption',
+                releaseYear: 1994,
+                rating: 9.3,
+                mainActors: ['Tim Robbins', 'Morgan Freeman', 'Bob Gunton']
+            },
+            {
+                name: 'Pulp Fiction',
+                releaseYear: 1994,
+                rating: 8.9,
+                mainActors: ['John Travolta', 'Uma Thurman', 'Samuel L. Jackson']
+            },
+            {
+                name: 'The Dark Knight',
+                releaseYear: 2008,
+                rating: 9.0,
+                mainActors: ['Christian Bale', 'Heath Ledger', 'Aaron Eckhart']
+            },
+            {
+                name: 'Forrest Gump',
+                releaseYear: 1994,
+                rating: 8.8,
+                mainActors: ['Tom Hanks', 'Robin Wright', 'Gary Sinise']
+            }
+        ];
+
+        movies = movies.sort((a, b) => {
+            if (a.rating > b.rating)
+                return -1;
+            else if (a.rating == b.rating)
+                return 0;
+            else
+                return 1;
+        });
+
+        let container = document.getElementById('container');
+
+
+        movies.forEach((movie, index) => {
+            let actors = movie.mainActors.reduce((string, actors) => string += actors + '; ', '');
+
+            let card = document.createElement('div');
+            let img = document.createElement('img');
+            let title = document.createElement('h3');
+            let cardData = document.createElement('div');
+            let pDate = document.createElement('p');
+            let pRating = document.createElement('p');
+            let pMainActor = document.createElement('p');
+
+
+
+            if (index == 0) {
+                card.classList.add('highestRated');
+            }
+            card.classList.add('card');
+            img.setAttribute('src', 'movie.jpeg');
+            title.textContent = movie.name;
+            cardData.classList.add('card-data');
+            pDate.textContent = 'Date: ' + movie.releaseYear;
+            pRating.textContent = 'Rating: ' + movie.rating + ' IMDB';
+            pMainActor.textContent = 'Actors: ' + actors;
+
+
+
+            container.appendChild(card);
+            card.appendChild(img);
+            card.appendChild(title);
+            card.appendChild(cardData);
+            cardData.appendChild(pDate);
+            cardData.appendChild(pRating);
+            card.appendChild(pMainActor);
+        });
+    </script>
+</body>
+
+</html>
