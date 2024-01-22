@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        body {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(14, 14, 14);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            padding: 50px;
+            border-radius: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+        #timeDisplay {
+            color: lightgreen;
+            font-size: 5rem;
+        }
+
+        #startButton,
+        #resetButton {
+            width: 100px;
+            height: 30px;
+        }
+
+        .start {
+            background-color: red;
+            color: white;
+        }
+
+        .lap-conainter {
+            margin-top: 20px;
+            width: 300px;
+        }
+
+        .lapData {
+            display: flex;
+            justify-content: space-between;
+            color: grey;
+
+        }
+
+        .lapNumbers {
+            color: white;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <p id="timeDisplay">00:00,00</p>
+        <div>
+            <button id="startButton">Start</button>
+            <button id="resetButton">Reset</button>
+        </div>
+        <div id="lap-conainter" class="lap-conainter">
+            <div class="lapData">
+                <p>Lap No.</p>
+                <p>Total</p>
+            </div>
+            <hr>
+        </div>
+    </div>
+
+    <script>
+        let timeDisplay = document.getElementById('timeDisplay');
+        let startButton = document.getElementById('startButton');
+        let resetButton = document.getElementById('resetButton');
+        let lapContainer = document.getElementById('lap-conainter');
+
+        let startTime = 0;
+        let elapsedTime = 0;
+        let paused = true;
+        let intervalId;
+        let lapNum = 0;
+
+        startButton.addEventListener('click', () => {
+            startButton.classList.toggle('start');
+            if (paused) {
+                paused = false;
+                startTime = Date.now() - elapsedTime;
+                intervalId = setInterval(updateTime, 100);
+                startButton.textContent = 'Stop';
+                resetButton.textContent = 'Lap';
+            } else {
+                paused = true;
+                elapsedTime = Date.now() - startTime;
+                clearInterval(intervalId);
+                startButton.textContent = 'Start';
+                resetButton.textContent = 'Reset';
+            }
+        });
+
+        resetButton.addEventListener('click', () => {
+            if (paused) {
+                elapsedTime = 0;
+                lapNum = 0;
+                timeDisplay.textContent = '00:00,00';
+                let lapNumbersElements = lapContainer.querySelectorAll('.lapNumbers');
+                lapNumbersElements.forEach(element => element.remove());
+            } else {
+                lapNum++;
+
+                let lapNumbers = document.createElement('div');
+                let pLapName = document.createElement('p');
+                let pTotal = document.createElement('p');
+
+                pLapName.textContent = 'Lap ' + lapNum;
+                pTotal.textContent = formatTime(elapsedTime);
+
+                lapNumbers.classList.add('lapNumbers');
+
+                lapContainer.appendChild(lapNumbers);
+                lapNumbers.appendChild(pLapName);
+                lapNumbers.appendChild(pTotal);
+
+            }
+        });
+
+        function updateTime() {
+            const currentTime = Date.now();
+            elapsedTime = currentTime - startTime;
+
+            const ms = pad(Math.floor((elapsedTime % 1000) / 10));
+            const sec = pad(Math.floor((elapsedTime / 1000) % 60));
+            const min = pad(Math.floor((elapsedTime / (1000 * 60)) % 60));
+
+            timeDisplay.textContent = min + ':' + sec + ',' + ms;
+        }
+
+        function pad(unit, length = 2) {
+            return ('0'.repeat(length) + unit).slice(-length);
+        }
+
+        function formatTime(time) {
+            const ms = pad(Math.floor((time % 1000) / 10));
+            const sec = pad(Math.floor((time / 1000) % 60));
+            const min = pad(Math.floor((time / (1000 * 60)) % 60));
+            return min + ':' + sec + ',' + ms;
+        }
+    </script>
+</body>
+
+</html>
