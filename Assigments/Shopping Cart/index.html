@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoping cart</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        * {
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-top: 20px;
+        }
+
+        .shopping-cart {
+            width: 280px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0px 0px 20px grey;
+            display: none;
+            ;
+        }
+
+        .card {
+            width: 250px;
+            margin: 5px;
+            padding: 5px 10px 5px 10px;
+            border-radius: 10px;
+        }
+
+        .card-data {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .shopping-cart-price {
+            margin: 5px;
+            padding: 5px 10px 10px 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .notification {
+            width: 30px;
+            position: relative;
+        }
+
+        .notification:hover .shopping-cart {
+            display: block;
+            position: absolute;
+            top: 50px;
+            left: -100px;
+        }
+
+        hr {
+            margin-top: 3px;
+        }
+
+        #notific-num {
+            position: absolute;
+            top: -8px;
+            right: -20px;
+            padding: 5px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            font-size: 1rem;
+        }
+
+        .mso-span{
+            font-size: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="notification">
+        <p id="notific-num"></p>
+        <span class="material-symbols-outlined mso-span">
+            shopping_cart
+        </span>
+
+        <div id="shopping-cart" class="shopping-cart">
+
+        </div>
+    </div>
+
+    <script>
+        let cart = [
+            {
+                title: 'Milk',
+                category: 'Food',
+                quantity: 3,
+                price: 1.65
+            },
+            {
+                title: 'Bread',
+                category: 'Food',
+                quantity: 2,
+                price: 2.25
+            },
+            {
+                title: 'Smartphone',
+                category: 'Electronics',
+                quantity: 1,
+                price: 699.99
+            },
+            {
+                title: 'Running Shoes',
+                category: 'Fashion',
+                quantity: 1,
+                price: 49.99
+            },
+            {
+                title: 'Book: The Hitchhiker\'s Guide to the Galaxy',
+                category: 'Books',
+                quantity: 1,
+                price: 12.99
+            },
+            {
+                title: 'Coffee Maker',
+                category: 'Appliances',
+                quantity: 1,
+                price: 34.99
+            },
+            {
+                title: 'Gaming Laptop',
+                category: 'Electronics',
+                quantity: 1,
+                price: 1299.99
+            },
+            {
+                title: 'Sunglasses',
+                category: 'Fashion',
+                quantity: 2,
+                price: 19.99
+            }
+        ];
+
+
+        let totalPrice = 0;
+        let totalItem = 0;
+        let shoppingCart = document.getElementById('shopping-cart');
+
+        cart.forEach((item) => {
+            let cartItem = document.createElement('div');
+            let cartItemData = document.createElement('div');
+            let title = document.createElement('h4');
+            let category = document.createElement('p');
+            let price = document.createElement('h4');
+            let hr = document.createElement('hr');
+
+
+            cartItem.classList.add('card');
+            cartItemData.classList.add('card-data')
+            title.textContent = item.title + ' x ' + item.quantity;
+            category.textContent = 'Category: ' + item.category;
+            let realPriceFixed = item.quantity * item.price;
+            realPriceFixed = realPriceFixed.toFixed(2);
+            price.textContent = realPriceFixed + '$';
+            totalPrice += parseFloat(realPriceFixed);
+            totalItem += item.quantity;
+
+
+            shoppingCart.appendChild(cartItem);
+            cartItem.appendChild(cartItemData);
+            cartItemData.appendChild(title);
+            cartItem.appendChild(category);
+            cartItemData.appendChild(price);
+            cartItem.appendChild(hr);
+
+        })
+
+        let fullPriceCon = document.createElement('div');
+        let itemTotal = document.createElement('h4');
+        let fullPrice = document.createElement('h4');
+        fullPriceCon.classList.add('shopping-cart-price');
+
+        itemTotal.textContent = totalItem + ' x Items';
+        fullPrice.textContent = 'Price: ' + totalPrice + '$';
+
+        shoppingCart.appendChild(fullPriceCon);
+        fullPriceCon.appendChild(itemTotal);
+        fullPriceCon.appendChild(fullPrice);
+
+        let notificNum = document.getElementById('notific-num');
+        notificNum.textContent = totalItem;
+
+    </script>
+</body>
+
+</html>
