@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ecommerce Website</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: auto;
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            transition: transform 0.2s;
+            width: 100%;
+        }
+
+
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s;
+        }
+
+        .popup.show {
+            visibility: visible;
+            opacity: 1; 
+        }
+
+        .popup-content {
+            background-color: white;
+            border-radius: 5px;
+            padding: 2rem;
+            max-width: 800px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+
+        .popup-content img {
+            margin: 0 auto;
+            display: flex;
+            height: 200px;
+        }
+
+        .product-image {
+            height: auto;
+            width: 150px;
+            height: 180px;
+            display: flex;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Products</h1>
+        <div class="product-container">
+
+        </div>
+    </div>
+
+
+    <div class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <div class="product-info"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let productContainer = document.querySelector('.product-container');
+            let popup = document.querySelector('.popup');
+            let closeButton = popup.querySelector('.close');
+
+
+            fetch('https://fakestoreapi.com/products')
+                .then(response => response.json())
+                .then(products => {
+
+                    products.forEach(product => {
+                        let productCard = document.createElement('div');
+                        productCard.classList.add('product-card');
+
+                        let productImage = document.createElement('img');
+                        productImage.src = product.image;
+                        productImage.alt = product.title;
+                        productImage.classList.add('product-image');
+
+                        let productTitle = document.createElement('h2');
+                        productTitle.textContent = product.title;
+                        productTitle.classList.add('product-title');
+
+                        let productPrice = document.createElement('p');
+                        productPrice.textContent = `$${product.price}`;
+                        productPrice.classList.add('product-price');
+
+                        productCard.appendChild(productImage);
+                        productCard.appendChild(productTitle);
+                        productCard.appendChild(productPrice);
+
+                        productCard.addEventListener('click', () => {
+
+                            fetch(`https://fakestoreapi.com/products/${product.id}`)
+                                .then(response => response.json())
+                                .then(productDetails => {
+                                    popup.querySelector('.product-info').innerHTML = `
+                                <h2>${productDetails.title}</h2>
+                                <img src="${productDetails.image}" alt="${productDetails.title}">
+                                <p>${productDetails.description}</p>
+                                <p>$${productDetails.price}</p>
+                            `;
+                                    popup.classList.add('show');
+                                });
+                        });
+
+                        productContainer.appendChild(productCard);
+                    });
+                });
+
+
+            closeButton.addEventListener('click', () => {
+                popup.classList.remove('show');
+            });
+        });
+
+
+
+    </script>
+</body>
+
+</html>
