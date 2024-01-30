@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 50px;
+            background-color: rgb(107, 26, 187);
+        }
+
+        h1 {
+            color: #707070;
+        }
+
+        input {
+            padding: 8px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: steelblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(46, 88, 122);
+        }
+
+        .facts-container{
+            margin-top: 50px;
+        }
+
+        .facts-container p{
+            margin-bottom: 50px;
+        }
+
+        .factsBox{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+            gap: 20px;
+        }
+
+        .fact {
+            padding: 20px;
+            width: 200px;
+            background-color: white;
+            box-shadow: 0px 0px 20px lightskyblue;
+            border: 1px solid black;
+            border-radius: 20px;
+            height: 300px;
+            transition: all 0.2s;
+        }
+
+        .fact:hover{
+            scale: 1.1;
+            box-shadow: 0px 0px 10px lightskyblue;
+
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Date Facts</h1>
+    <label for="dob">Enter your Date of Birth:</label>
+    <input type="date" id="dob" required>
+    <button onclick="getBirthdayFacts()">Submit</button>
+
+    <div id="facts-container" class="facts-container">
+    </div>
+
+    <script>
+        async function getApi(day, month) {
+            let url = `https://numbersapi.p.rapidapi.com/${month}/${day}/date?fragment=true&json=true`;
+            let options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': 'aa6c822d06mshba6fa3a1a045633p1f70c4jsnede1b8640ba3',
+                    'X-RapidAPI-Host': 'numbersapi.p.rapidapi.com'
+                }
+            };
+
+            try {
+                let response = await fetch(url, options);
+                let result = await response.json();
+                return result.text;
+            } catch (error) {
+                throw new Error(error);
+            }
+        }
+
+        async function getFormattedDate(date) {
+            let day = date.getDate();
+            let monthIndex = date.getMonth();
+            let monthNames = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            let month = monthNames[monthIndex];
+
+            return `${day} ${month}`;
+        }
+
+        async function getBirthdayFacts() {
+            let dobInput = document.getElementById('dob');
+            let dob = new Date(dobInput.value);
+            let factsContainer = document.getElementById('facts-container');
+
+            if (isNaN(dob.getTime())) {
+                factsContainer.innerHTML = '<p class="error">Please enter a valid date of birth.</p>';
+                return;
+            }
+
+            try {
+                let formattedDate = await getFormattedDate(dob);
+                let [fact1, fact2, fact3] = await Promise.all([
+                    getApi(dob.getDate(), dob.getMonth() + 1),
+                    getApi(dob.getDate(), dob.getMonth() + 1),
+                    getApi(dob.getDate(), dob.getMonth() + 1)
+                ]);
+
+                factsContainer.innerHTML = `
+                    <p>At this date "${formattedDate}" these things happened:</p>
+                    <div class="factsBox">
+                        <div class="fact"><p>${fact1}</p></div>
+                        <div class="fact"><p>${fact2}</p></div>
+                        <div class="fact"><p>${fact3}</p></div>
+                    </div>
+                `;
+            } catch (error) {
+                factsContainer.innerHTML = `<p class="error">${error.message}</p>`;
+            }
+        }
+    </script>
+</body>
+
+</html>
