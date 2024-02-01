@@ -1,42 +1,445 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-color: rgb(246,226,202);
-    height: 100vh;
-}
+<!DOCTYPE html>
+<html lang="en">
 
-.container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 5% 10% 90% ;
-   
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <title>Document</title>
+</head>
 
-.green{
-    grid-row: 1/3;
-    grid-column: 1/6;
-    background-color: rgb(74,233,178);
-    border-radius: 0px 0px 50px 50px;
-    z-index: 2;
-}
+<body>
+    <div class="grid-container">
 
-.text {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 2em;
-    font-weight: 500;
-    grid-row: 2/4;
-    grid-column: 1;
-    margin: 0px 50px 0px 50px;
-    background-color: white;
-    z-index: 2;
-    padding: 40px;
-    border-radius: 15px 15px 0px 0px;
-    box-shadow: 1px 1px 10px 5px gray
-}
-
-h1 {
-    text-align: center;
-    padding-bottom: 1em;
-}
+        <aside class="left-side-menu">
+            <h1>CP COOL PAGE</h1>
+            <hr>
+            <div class="content">
+                <div class="left-side-content">
+                    <img src="images/avatar.jpg">
+                    <p>Filan Fisteku</p>
+                </div>
+                <div class="right-side-expand">
+                    <span class="material-icons md-60">expand_more</span>
+                </div>
+            </div>
 
 
+
+            <hr>
+
+            <nav>
+                <ul>
+                    <li>
+                        <div class="content-active active">
+                            <div class="left-side-content">
+                                <span class="material-icons md-60">dashboard</span>
+                                <p>Dashboard</p>
+                            </div>
+
+                            <span class="material-icons md-60" style="opacity: 0%;">expand_more</span>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="content">
+                            <div class="left-side-content">
+                                <span class="material-icons md-60">photo</span>
+                                <p>Pages</p>
+                            </div>
+
+                            <span class="material-icons md-60">expand_more</span>
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="content">
+                            <div class="left-side-content">
+                                <span class="material-icons md-60">apps</span>
+                                <p>Components</p>
+                            </div>
+
+                            <span class="material-icons md-60">expand_more</span>
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="content">
+                            <div class="left-side-content">
+                                <span class="material-icons md-60">content_paste</span>
+                                <p>Forms</p>
+                            </div>
+
+                            <span class="material-icons md-60">expand_more</span>
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="content">
+                            <div class="left-side-content">
+                                <span class="material-icons md-60">grid_on</span>
+                                <p>Tables</p>
+                            </div>
+
+                            <span class="material-icons md-60">expand_more</span>
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="content">
+                            <div class="left-side-content">
+                                <span class="material-icons md-60">location_on</span>
+                                <p>Maps</p>
+                            </div>
+
+                            <span class="material-icons md-60">expand_more</span>
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="content">
+                            <div class="left-side-content">
+                                <span class="material-icons md-60">widgets</span>
+                                <p>Widgets</p>
+                            </div>
+
+                            <span class="material-icons md-60">expand_more</span>
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="content">
+                            <div class="left-side-content">
+                                <span class="material-icons md-60">trending_up</span>
+                                <p>Charts</p>
+                            </div>
+
+                            <span class="material-icons md-60">expand_more</span>
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="content">
+                            <div class="left-side-content">
+                                <span class="material-icons md-60">date_range</span>
+                                <p>Calendar</p>
+                            </div>
+
+                            <span class="material-icons md-60">expand_more</span>
+
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+
+
+        </aside>
+
+
+
+
+
+        <div class="right-side-main">
+
+            <header>
+                <div class="header-left">
+                    <div class="circle-button">
+                        <span class="material-icons" title="See More">more_vert</span>
+                    </div>
+                    <p>Dashboard</p>
+                </div>
+                <div class="header-right">
+                    <form>
+                        <input type="text" placeholder="Search" class="seach-input">
+                    </form>
+
+                    <div class="circle-button">
+                        <span class="material-icons" title="Search">search</span>
+                    </div>
+
+                    <nav class="header-navigation">
+                        <span class="material-icons spaces" title="Dashboard">dashboard</span>
+
+                        <div class="notification-container" id="notification">
+                            <span class="material-icons" title="Notification">notifications</span>
+                            <p class="notification" title="Notification">5</p>
+                            <ul class="notification-box">
+                                <li>
+                                    <p>John Doe sent a message</p>
+                                </li>
+                                <li>
+                                    <p>Someone viewed your profile</p>
+                                </li>
+                                <li>
+                                    <p>John Doe sent a message</p>
+                                </li>
+                                <li>
+                                    <p>Someone viewed your profile</p>
+                                </li>
+                                <li>
+                                    <p>Another notification</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <span class="material-icons spaces-end" title="Profile">person</span>
+                    </nav>
+                </div>
+                <span class="material-icons" id="view-button" title="Profile">view_headline</span>
+            </header>
+
+
+            <main>
+                <div class="sales-container">
+                    <span class="material-icons icon green">language</span>
+                    <p class="title">Global Sales by Top Locations</p>
+
+                    <div class="sales-contats">
+
+                        <table>
+                            <tr>
+                                <td> <img src="images/flags/us.png"> </td>
+                                <td>USA</td>
+                                <td>2.920</td>
+                                <td>53.23%</td>
+                            </tr>
+
+                            <tr>
+                                <td> <img src="images/flags/germany.png"> </td>
+                                <td>Germany</td>
+                                <td>1.300</td>
+                                <td>4.34%</td>
+                            </tr>
+                            <tr>
+                                <td> <img src="images/flags/australia.png"> </td>
+                                <td>Australia</td>
+                                <td>750</td>
+                                <td>20.43%</td>
+                            </tr>
+                            <tr>
+                                <td> <img src="images/flags/united-kingdom.png"> </td>
+                                <td>United Kingdom</td>
+                                <td>690</td>
+                                <td>10.35%</td>
+                            </tr>
+                            <tr>
+                                <td> <img src="images/flags/romania.png"> </td>
+                                <td>Romania</td>
+                                <td>600</td>
+                                <td>7.87%</td>
+                            </tr>
+                            <tr>
+                                <td> <img src="images/flags/brazil.png"> </td>
+                                <td>Brazil</td>
+                                <td>550</td>
+                                <td>5.94%</td>
+                            </tr>
+                        </table>
+
+
+
+                        <div class="sales-contats-iframe">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387194.0507365849!2d-74.30862916789279!3d40.697021271126985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1699117117957!5m2!1sen!2s"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="sales-boxes">
+                    <div class="sales-boxes-items">
+                        <span class="material-icons icon orange">chair</span>
+                        <p class="sales-boxes-items-title">Bookings</p>
+                        <p class="sales-boxes-items-numbers">184</p>
+                        <hr>
+                        <div class="sales-boxes-items-bottom">
+                            <span class="material-icons">warning</span>
+                            <p>Get more space</p>
+                        </div>
+                    </div>
+
+
+                    <div class="sales-boxes-items">
+                        <span class="material-icons icon pink">bar_chart</span>
+                        <p class="sales-boxes-items-title">Website Visits</p>
+                        <p class="sales-boxes-items-numbers">75.521</p>
+                        <hr>
+                        <div class="sales-boxes-items-bottom">
+                            <span class="material-icons">sell</span>
+                            <p>Tracked from Google Analystics</p>
+                        </div>
+                    </div>
+
+
+                    <div class="sales-boxes-items">
+                        <span class="material-icons icon green">store</span>
+                        <p class="sales-boxes-items-title">Revenue</p>
+                        <p class="sales-boxes-items-numbers">$32,245</p>
+                        <hr>
+                        <div class="sales-boxes-items-bottom">
+                            <span class="material-icons">calendar_month</span>
+                            <p>Last 24 Hours</p>
+                        </div>
+                    </div>
+
+
+                    <div class="sales-boxes-items">
+                        <span class="material-icons icon blue">public</span>
+                        <p class="sales-boxes-items-title">Followers</p>
+                        <p class="sales-boxes-items-numbers">+245</p>
+                        <hr>
+                        <div class="sales-boxes-items-bottom">
+                            <span class="material-icons">history</span>
+                            <p>Just Updated</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="manage-list-container">
+                    <p class="manage-list-title">Manage Listings</p>
+                    <div class="manage-list">
+                        <div class="manage-list-item">
+                            <div class="manage-list-item-animation">
+                                <img src="images/card-1.jpeg" class="manage-list-item-img">
+
+                                <div class="manage-list-item-edits">
+                                    <span class="material-icons gray-span" title="View">preview</span>
+                                    <span class="material-icons green-span" title="Edit">done</span>
+                                    <span class="material-icons red-span" title="Delete">close</span>
+                                </div>
+                            </div>
+
+                            <p class="manage-list-item-title">Cozy 5 Stars Apartment</p>
+                            <p class="manage-list-item-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing
+                                elit.
+                                Quos,
+                                facilis consectetur harum et rem quidem ut
+                                dolorum impedit expedita fugiat velit, est quas perferendis quae repudiandae atque
+                                architecto
+                                eligendi sint?
+                            </p>
+                            <hr>
+
+                            <div class="manage-list-item-bottom">
+                                <p>$899/night</p>
+                                <div class="manage-list-item-bottom-right">
+                                    <span class="material-icons gray-span" title="Delete">location_on</span>
+                                    <p>Barcelona, Spain</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="manage-list-item">
+                            <div class="manage-list-item-animation">
+                                <img src="images/card-2.jpeg" class="manage-list-item-img">
+
+                                <div class="manage-list-item-edits">
+                                    <span class="material-icons gray-span" title="View">preview</span>
+                                    <span class="material-icons green-span" title="Edit">done</span>
+                                    <span class="material-icons red-span" title="Delete">close</span>
+                                </div>
+                            </div>
+
+                            <p class="manage-list-item-title">Office Studio</p>
+                            <p class="manage-list-item-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing
+                                elit.
+                                Quos,
+                                facilis consectetur harum et rem quidem ut
+                                dolorum impedit expedita fugiat velit, est quas perferendis quae repudiandae atque
+                                architecto
+                                eligendi sint?
+                            </p>
+                            <hr>
+
+                            <div class="manage-list-item-bottom">
+                                <p>$1.119/night</p>
+                                <div class="manage-list-item-bottom-right">
+                                    <span class="material-icons gray-span" title="Delete">location_on</span>
+                                    <p>London, UK</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="manage-list-item">
+                            <div class="manage-list-item-animation">
+                                <img src="images/card-3.jpeg" class="manage-list-item-img">
+
+                                <div class="manage-list-item-edits">
+                                    <span class="material-icons gray-span" title="View">preview</span>
+                                    <span class="material-icons green-span" title="Edit">done</span>
+                                    <span class="material-icons red-span" title="Delete">close</span>
+                                </div>
+                            </div>
+
+                            <p class="manage-list-item-title">Beautiful Castle</p>
+                            <p class="manage-list-item-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing
+                                elit.
+                                Quos,
+                                facilis consectetur harum et rem quidem ut
+                                dolorum impedit expedita fugiat velit, est quas perferendis quae repudiandae atque
+                                architecto
+                                eligendi sint?
+                            </p>
+                            <hr>
+
+                            <div class="manage-list-item-bottom">
+                                <p>$459/night</p>
+                                <div class="manage-list-item-bottom-right">
+                                    <span class="material-icons gray-span" title="Delete">location_on</span>
+                                    <p>Milan, Italy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+
+            <footer>
+                <HR>
+                <div class="footer-container">
+                    <nav class="footer-container-left">
+                        <ul>
+                            <li>
+                                <p><a href="#">HOME</a></p>
+                            </li>
+                            <li>
+                                <p><a href="#">COMPANY</a></p>
+                            </li>
+                            <li>
+                                <p><a href="#">PORTOFOLIO</a></p>
+                            </li>
+                            <li>
+                                <p><a href="#">BLOG</a></p>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="footer-container-right">
+                        <p>&copy; Bleon pireva</p>
+                    </div>
+                </div>
+            </footer>
+
+
+        </div>
+
+    </div>
+</body>
+
+</html>
