@@ -170,26 +170,18 @@
                     <nav class="header-navigation">
                         <span class="material-icons spaces" title="Dashboard">dashboard</span>
 
-                        <div class="notification-container" id="notification">
-                            <span class="material-icons" title="Notification">notifications</span>
-                            <p class="notification" title="Notification">5</p>
-                            <ul class="notification-box">
-                                <li>
-                                    <p>John Doe sent a message</p>
-                                </li>
-                                <li>
-                                    <p>Someone viewed your profile</p>
-                                </li>
-                                <li>
-                                    <p>John Doe sent a message</p>
-                                </li>
-                                <li>
-                                    <p>Someone viewed your profile</p>
-                                </li>
-                                <li>
-                                    <p>Another notification</p>
-                                </li>
-                            </ul>
+                        <div class="dropdown" id="notificationDropdown">
+                            <span class="material-icons" title="notification">notifications</span><span class="X">5</span>
+                            <div class="dropdown-content" id="notifications">
+                           <!----  <a href="#">John Doe sent a message</a>
+                                <a href="#">Someone viewed your profile</a>
+                                <a href="#">John Doe sent a message</a>
+                                <a href="#">Someone viewed your profile</a>
+                                <a href="#">Another notification 3</a>-->
+                             
+                            </div> 
+                          
+            
                         </div>
                         <span class="material-icons spaces-end" title="Profile">person</span>
                     </nav>
@@ -440,6 +432,7 @@
         </div>
 
     </div>
+    <script src="index.js" type="module"></script>
 </body>
 
 </html>
