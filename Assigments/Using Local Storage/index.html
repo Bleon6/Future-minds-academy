@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Switcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s;
+            padding: 20px;
+        }
+
+        h1, p {
+            color: #333;
+        }
+
+        .toggle-label {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .toggle-input {
+            margin-left: 10px;
+        }
+
+        body.dark {
+            background-color: #333;
+            color: #fff;
+        }
+
+        body.dark h1, body.dark p {
+            color: #fff; 
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Webiste Title</h1>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi at sed delectus velit nobis enim nostrum quod quasi, possimus ad blanditiis dignissimos illum sequi quae? Et facere eligendi est vitae! Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, laborum doloremque assumenda, expedita, officiis impedit laboriosam alias sequi praesentium repudiandae debitis officia! Voluptatibus eos incidunt tempore cum esse corporis porro!</p>
+
+    <div>
+        <label class="toggle-label">Dark Mode</label>
+        <input type="checkbox" class="toggle-input" id="themeToggle">
+    </div>
+
+    <script>
+        function setTheme(theme) {
+            const body = document.body;
+            body.classList.remove("light", "dark");
+            body.classList.add(theme);
+            localStorage.setItem("theme", theme);
+        }
+
+        function toggleTheme() {
+            const themeToggle = document.getElementById("themeToggle");
+            if (themeToggle.checked) {
+                setTheme("dark");
+            } else {
+                setTheme("light");
+            }
+        }
+
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            setTheme(savedTheme);
+            document.getElementById("themeToggle").checked = savedTheme === "dark";
+        }
+
+        document.getElementById("themeToggle").addEventListener("change", toggleTheme);
+    </script>
+</body>
+</html>
