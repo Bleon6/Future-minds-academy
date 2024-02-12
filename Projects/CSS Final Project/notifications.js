@@ -5,8 +5,8 @@ let defaultNotifications=[
     "Someone viewed your profile",
     "John Doe sent a message",
     "John Doe wants to connect",
-    "hello",
-    "hello"
+    "New message from John Doe"
+    
 
     
 
@@ -29,6 +29,8 @@ notifications.forEach((notification)=> {
 
 //e ndreqim numrin  e notifications
 listElement.parentElement.setAttribute('data-notifications', notifications.length);
+
+
 
     
 
